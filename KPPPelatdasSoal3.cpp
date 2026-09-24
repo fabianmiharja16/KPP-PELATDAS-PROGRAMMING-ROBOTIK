@@ -165,13 +165,17 @@ void cetakMaze(vector<vector<char>>& maze, pair<int,int> posisiRobot) {
 
 int main() {
     vector<vector<char>> maze = {
-        {'#', '#', '#', '#', '#', '#', '#'},
-        {'#', 'S', '#', '.', '.', '.', '#'},
-        {'#', '.', '#', '.', '#', 'G', '#'},
-        {'#', '.', '.', '.', '#', '.', '#'},
-        {'#', '#', '#', '.', '.', '.', '#'},
-        {'#', 'X', '.', '.', 'F', '.', '#'},
-        {'#', '#', '#', '#', '#', '#', '#'}
+    {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'},
+    {'#', 'S', '.', '.', '#', '.', '.', '.', '.', '.', '#'},
+    {'#', '.', '#', '.', '#', '.', '#', '#', '#', '.', '#'},
+    {'#', '.', '#', '.', '.', '.', '#', 'G', '#', '.', '#'},
+    {'#', '.', '.', '.', '#', '.', '#', '.', '#', '.', '#'},
+    {'#', '#', '#', '.', '#', '.', '.', '.', '#', '.', '#'},
+    {'#', '.', '.', '.', '#', '#', '#', '.', '#', '.', '#'},
+    {'#', '.', '#', '.', '.', 'X', '.', '.', '#', '.', '#'},
+    {'#', '.', '#', '.', '#', '#', '#', '.', '#', 'F', '#'},
+    {'#', 'X', '.', '.', '.', '.', 'X', '.', '.', '.', '#'},
+    {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'}
     };
 
     int ROWS = maze.size();
@@ -183,6 +187,7 @@ int main() {
 
     findPos(maze, startPos, flagPos, goalPos, ROWS, COLS);
 
+    
     vector<pair<int,int>> jalurKeFlag = jalankanAstar(maze, startPos, flagPos);
     vector<pair<int,int>> jalurKeGoal = jalankanAstar(maze, flagPos, goalPos);
 
@@ -194,7 +199,7 @@ int main() {
     vector<string> arahKeFlag = jalurKeArah(jalurKeFlag);
     vector<string> arahKeGoal = jalurKeArah(jalurKeGoal);
 
-    cetakMaze(maze, startPos);
+    cetakMaze(maze, startPos); 
 
     cout<<"MAP LOADED     : "<< ROWS << " x " << COLS << endl;
     cout<<"START POSITION : ("<< startPos.first << "," << startPos.second << ")" << endl; 
